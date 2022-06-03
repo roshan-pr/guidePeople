@@ -1,14 +1,41 @@
-const moveFront = ({ x, y }) => ({ x, y: ++y });
-const moveBack = ({ x, y }) => ({ x, y: --y });
-const moveLeft = ({ x, y }) => ({ x: --x, y });
-const moveRight = ({ x, y }) => ({ x: ++x, y });
+class Person {
+  #target;
+  #position;
+  constructor(target) {
+    this.#target = target;
+    this.#position = { x: 0, y: 0 };
+  }
+
+  moveFront() {
+    this.#position.x;
+    ++this.#position.y;
+  }
+  moveBack() {
+    this.#position.x;
+    --this.#position.y;
+  }
+  moveLeft() {
+    --this.#position.x;
+    this.#position.y;
+  }
+  moveRight() {
+    ++this.#position.x;
+    this.#position.y;
+  }
+
+  display() {
+    console.log('position :', this.#position.x, this.#position.y);
+  }
+}
 
 const guidePeople = function () {
-  const position = { x: 0, y: 0 };
-  console.log(moveFront(position));
-  console.log(moveBack(position));
-  console.log(moveLeft(position));
-  console.log(moveRight(position));
+
+  const person = new Person({ x: 4, y: 4 });
+
+  person.moveFront();
+  person.moveLeft();
+  // person.moveBack();
+  person.display()
 };
 
 guidePeople();
