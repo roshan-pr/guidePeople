@@ -1,18 +1,6 @@
+const { Ground } = require("./Ground");
 const { Player } = require("./Player.js");
 const { Position } = require("./Position.js");
-
-class Ground {
-  #size; #target;
-
-  constructor(size, target) {
-    this.#size = size;
-    this.#target = target;
-  }
-
-  hasReachedTarget(currentPosition) {
-    return currentPosition.equals(this.#target);
-  }
-}
 
 class Game {
   #ground;
@@ -40,10 +28,13 @@ const guidePeople = function () {
   const target = new Position(size, size);
   const ground = new Ground(size, target);
 
-  const player = new Player(new Position(0, 0));
+  const player = new Player(new Position(1, 1));
   const game = new Game(ground, player);
 
-  const newPosition = game.movePlayer('forward');
+  let newPosition = game.movePlayer('forward');
+  newPosition = game.movePlayer('left');
+  console.log(newPosition + '');
+
   if (game.isOver(newPosition)) {
     console.log('Game Over');
   };

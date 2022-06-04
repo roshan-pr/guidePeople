@@ -1,16 +1,17 @@
 **TODO**
 
   - [ ] Add left, right, back commands in Player entity.
-  - [ ] Extract Ground entity to separate the file.
-  
+
 
 
 **MAYBE**
   - [ ] Get clarity about the target.
+  - [ ] Represent ground visually on screen.
 
 
 **Done**
 
+- [x] Extract Ground entity to separate the file.
 - [x] Connect Ground and Player with Game entity.
 - [x] Extract Player entity to separate file.
 - [x] Have Player as an entity.

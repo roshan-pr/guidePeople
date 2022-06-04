@@ -10,8 +10,17 @@ class Player {
     return newPoint;
   }
 
+  #stepLeft() {
+    const newPoint = this.#position.translate(-1, 0);
+    this.#position = newPoint;
+    return newPoint;
+  }
+
   move(command) {
-    const moves = { forward: () => this.#stepForward() };
+    const moves = {
+      forward: () => this.#stepForward(),
+      left: () => this.#stepLeft()
+    };
     return moves[command]();
   }
 
