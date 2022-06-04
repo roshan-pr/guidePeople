@@ -26,6 +26,10 @@ class Game {
     return this.#player.move(command);
   }
 
+  isOver(currentPosition) {
+    return this.#ground.hasReachedTarget(currentPosition);
+  }
+
   equals(otherGame) {
     return otherGame instanceof Game;
   }
@@ -34,16 +38,15 @@ class Game {
 const guidePeople = function () {
   const size = 4;
   const target = new Position(size, size);
-
   const ground = new Ground(size, target);
-  // console.log(ground.hasReachedTarget(new Position(2, 2)));
-  // console.log(ground.hasReachedTarget(new Position(4, 4)));
+
   const player = new Player(new Position(0, 0));
-  // const newPoint = player.stepForward();
-  // console.log(player + '');
   const game = new Game(ground, player);
+
   const newPosition = game.movePlayer('forward');
-  console.log(newPosition + '');
+  if (game.isOver(newPosition)) {
+    console.log('Game Over');
+  };
 };
 
 guidePeople();

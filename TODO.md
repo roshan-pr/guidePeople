@@ -1,8 +1,8 @@
 **TODO**
 
-  - [ ] Connect Ground and Player with Game entity.
   - [ ] Add left, right, back commands in Player entity.
-
+  - [ ] Extract Ground entity to separate the file.
+  
 
 
 **MAYBE**
@@ -11,6 +11,7 @@
 
 **Done**
 
+- [x] Connect Ground and Player with Game entity.
 - [x] Extract Player entity to separate file.
 - [x] Have Player as an entity.
 - [x] Introduce Position as an entity.

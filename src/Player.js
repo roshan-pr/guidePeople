@@ -23,4 +23,5 @@ class Player {
     return otherPlayer instanceof Player;
   }
 }
+
 exports.Player = Player;
