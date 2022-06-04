@@ -1,25 +1,5 @@
-const { Position } = require("./Position");
-
-class Player {
-  #position;
-  constructor(position) {
-    this.#position = position;
-  }
-
-  stepForward() {
-    const newPoint = this.#position.translate(0, 1);
-    this.#position = newPoint;
-    return newPoint;
-  }
-
-  toString() {
-    return 'Player at : ' + this.#position.toString();
-  }
-
-  equals(otherPlayer) {
-    return otherPlayer instanceof Player;
-  }
-}
+const { Player } = require("./Player.js");
+const { Position } = require("./Position.js");
 
 class Ground {
   #size; #target;
@@ -32,7 +12,23 @@ class Ground {
   hasReachedTarget(currentPosition) {
     return currentPosition.equals(this.#target);
   }
+}
 
+class Game {
+  #ground;
+  #player;
+  constructor(ground, player) {
+    this.#ground = ground;
+    this.#player = player;
+  }
+
+  movePlayer(command) {
+    return this.#player.move(command);
+  }
+
+  equals(otherGame) {
+    return otherGame instanceof Game;
+  }
 }
 
 const guidePeople = function () {
@@ -43,9 +39,11 @@ const guidePeople = function () {
   // console.log(ground.hasReachedTarget(new Position(2, 2)));
   // console.log(ground.hasReachedTarget(new Position(4, 4)));
   const player = new Player(new Position(0, 0));
-  const newPoint = player.stepForward();
-  console.log(player + '');
-  console.log(newPoint.equals(newPoint), 'In main');
+  // const newPoint = player.stepForward();
+  // console.log(player + '');
+  const game = new Game(ground, player);
+  const newPosition = game.movePlayer('forward');
+  console.log(newPosition + '');
 };
 
 guidePeople();
